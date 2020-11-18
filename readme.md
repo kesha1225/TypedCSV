@@ -2,6 +2,11 @@
 
 Typed extension for default [csv library](https://docs.python.org/3/library/csv.html)
 
+Installation
+```
+pip install https://github.com/kesha1225/TypedCSV/archive/master.zip
+```
+
 
 Put your csv data into typed model
 ```python
