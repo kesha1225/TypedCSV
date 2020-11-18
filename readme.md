@@ -20,6 +20,6 @@ class UsersModel(BaseModel):
 
 with open("users.csv") as csvfile:
     typed_reader = TypedReader(csvfile, delimiter=";", model=UsersModel)
-    for row in typed_reader:
+    for row in typed_reader:  # <class '__main__.UsersModel'>
         print(row.name)
 ```
