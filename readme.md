@@ -4,7 +4,7 @@ Typed extension for default [csv library](https://docs.python.org/3/library/csv.
 
 Installation
 ```
-pip install https://github.com/kesha1225/TypedCSV/archive/master.zip
+pip install typed_csv
 ```
 
 
