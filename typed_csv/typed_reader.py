@@ -1,33 +1,9 @@
-from csv import *
 import typing
 from _csv import reader
-from pydantic import BaseModel
 from typing import Generic, TypeVar
 
+from ._types import _DialectLike
 
-__all__ = [
-    "QUOTE_MINIMAL",
-    "QUOTE_ALL",
-    "QUOTE_NONNUMERIC",
-    "QUOTE_NONE",
-    "Error",
-    "Dialect",
-    "excel",
-    "excel_tab",
-    "field_size_limit",
-    "reader",
-    "writer",
-    "register_dialect",
-    "get_dialect",
-    "list_dialects",
-    "Sniffer",
-    "unregister_dialect",
-    "DictReader",
-    "DictWriter",
-    "unix_dialect",
-    "TypedReader",
-    "BaseModel",
-]
 
 T = TypeVar("T")
 
@@ -38,12 +14,12 @@ class TypedReader(Generic[T]):
         csvfile: typing.Iterable[str],
         model: typing.Type[T],
         list_delimiter: str = " ",
-        fieldnames: typing.Optional[typing.List[str]] = None,
+        fieldnames: typing.Optional[typing.Sequence[str]] = None,
         restkey: typing.Optional[str] = None,
         restval: typing.Optional[str] = None,
-        dialect: str = "excel",
-        *args,
-        **kwargs
+        dialect: _DialectLike = "excel",
+        *args: typing.Any,
+        **kwargs: typing.Any
     ):
         """
         :param csvfile: - file with csv
@@ -52,7 +28,7 @@ class TypedReader(Generic[T]):
         :param fieldnames: - list of keys for the dict
         :param restkey: - key to catch long rows
         :param restval: - default value for short rows
-        :param dialect:
+        :param dialect: - csv dialect
         :param args:
         :param kwargs:
         """
