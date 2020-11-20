@@ -31,10 +31,8 @@ class TypedWriter:
         self.model = model
         self.list_delimiter = list_delimiter
 
-        self.fieldnames: typing.List[str] = list(
-            self.model.__fields__.keys()
-        )  # list of keys for the dict
-        self.restval = restval  # for writing short dicts
+        self.fieldnames: typing.List[str] = list(self.model.__fields__.keys())
+        self.restval = restval
 
         if extrasaction.lower() not in ("raise", "ignore"):
             raise ValueError(

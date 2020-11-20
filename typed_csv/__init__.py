@@ -27,5 +27,5 @@ __all__ = [
     "unix_dialect",
     "TypedReader",
     "BaseModel",
-    "TypedWriter"
+    "TypedWriter",
 ]

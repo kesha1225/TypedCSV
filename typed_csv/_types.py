@@ -6,4 +6,5 @@ _DialectLike = Union[str, Dialect, Type[Dialect]]
 
 
 class _Writer(Protocol):
-    def write(self, s: str) -> Any: ...
+    def write(self, s: str) -> Any:
+        ...
