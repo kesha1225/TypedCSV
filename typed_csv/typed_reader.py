@@ -1,6 +1,7 @@
 import typing
-from _csv import reader
 from typing import Generic, TypeVar
+
+from _csv import reader
 
 from ._types import _DialectLike
 
@@ -94,5 +95,9 @@ class TypedReader(Generic[T]):
                 row_dict[key] = self.restval
         for field_name, value in row_dict.copy().items():
             if field_name in self.validators:
+                if not value:
+                    row_dict[field_name] = None
+                    continue
                 row_dict[field_name] = self.validators[field_name](value)
+
         return self.model(**row_dict)

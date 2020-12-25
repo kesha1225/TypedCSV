@@ -1,7 +1,7 @@
 from _csv import writer
-from pydantic import BaseModel
-
 import typing
+
+from pydantic import BaseModel
 
 from ._types import _DialectLike, _Writer
 
