@@ -1,4 +1,5 @@
 import typing
+import pydantic
 
 from typed_csv import TypedReader, BaseModel
 
@@ -6,7 +7,7 @@ from typed_csv import TypedReader, BaseModel
 class MyModel(BaseModel):
     keywords: typing.List[str]
     price: typing.Optional[int]  # if price not set
-    product_name: str
+    product_name: str = pydantic.Field(alias="product-name")
 
 
 with open("ikea.csv", encoding="utf-8") as csvfile:

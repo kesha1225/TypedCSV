@@ -94,10 +94,9 @@ class TypedReader(Generic[T]):
             for key in self.fieldnames[lr:]:
                 row_dict[key] = self.restval
         for field_name, value in row_dict.copy().items():
+            if value == "":
+                row_dict[field_name] = None
+                continue
             if field_name in self.validators:
-                if not value:
-                    row_dict[field_name] = None
-                    continue
                 row_dict[field_name] = self.validators[field_name](value)
-
         return self.model(**row_dict)
